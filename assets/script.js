@@ -3,11 +3,13 @@ var welcome = function(){
     window.alert("Welcome to Password Generator. This program will generate a password based on your set criteria.");
     passLength();
 }
-//Asked user about lowercase, uppercase, numberical and special characters
+//Prompt for link of function
 var passLength = function(){
     length = window.prompt("How many characters would you like in the password. Please choose a number between 8 and 128.");
-    length = parseInt (length) //converts desired length from a string
+    //convert desired length from a string
+    length = parseInt (length); 
     console.log(length + " characters");
+    //validate user input to be sure it meets the criteria for length 
     if (length >= 8 && length <=128){
       ask();
     } else {
@@ -16,6 +18,8 @@ var passLength = function(){
     }
     return length;
 }
+
+//Confirm what types of characters are wanted in the password
 var ask = function(){
     var lower = window.confirm("Would you like your password to include LOWERCASE letters?");
   
@@ -25,7 +29,7 @@ var ask = function(){
    
     var speci = window.confirm("Would you like your password to include SPECIAL CHARACTERS, such as ! @ # $ % ^ & *");
 
-    //listed the different combinations of the choices ending with an else statement that will loop the function if no choices are made
+    //list of the different combinations of the choices ending with an else statement that will loop the function if no choices are made
     if (lower && upper && num && speci){
         generatePassword (luns);
     } else if (lower && upper && num){
@@ -56,6 +60,7 @@ var ask = function(){
         generatePassword(n);
     } else if (speci){
         generatePassword(s)
+    //validates that at least one option is chosen
     }else{
         window.alert("Please choose at least one type of characters for the password.")
         ask();
@@ -69,8 +74,8 @@ var generatePassword = function(charType){
     for( var i =0; i < length; i++){
         result += characters.charAt(Math.floor(Math.random()*charactersLength))
     }
-
-    console.log(result);
+    
+    //Displays password in alret window
     window.alert("Your new password is " + result  )
 
 };
