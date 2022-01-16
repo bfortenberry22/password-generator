@@ -11,6 +11,7 @@
 * JS
 
 # Website
+https://bfortenberry22.github.io/password-generator/
 
 # Contribution
 Brittany
